@@ -14,7 +14,7 @@ pinterest_username:
 flickr_username:
 github_username:  "grimmdude"
 feed_icon: rss
-email:
+email: garrett@grimmdude.com
 gems: [jekyll-paginate]
 paginate_path: "/page/:num/"
 paginate: 5
