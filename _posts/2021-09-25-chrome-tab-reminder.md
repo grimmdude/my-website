@@ -8,7 +8,7 @@ Have you ever opened a website and said to yourself "I'd like to look at this mo
 
 Reminders are shown as native Chrome notifications, and when clicked you will be taken back to the site.  You can also snooze reminders for 15 minutes.
 
-[Get on AppSumo](https://appsumo.com/products/chrome-tab-reminder/)
+[Get on Chrome Web Store](https://chrome.google.com/webstore/detail/tab-reminder/emjkjhniepjnianimdjmjndnjdanjmmk)
 
 <img src="/images/chrome-tab-reminder/menu.png" class="image fit" alt="menu screenshot" />
 <img src="/images/chrome-tab-reminder/notification.png" class="image fit" alt="notification screenshot" />
