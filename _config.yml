@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
+title: Garrett Grimm # the website title (if blank, full name will be used instead)
 first_name: Garrett
 middle_name: 
 last_name: Grimm
@@ -13,7 +13,7 @@ footer_text:
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🔥 # the emoji used as the favicon
+icon: 👋 # the emoji used as the favicon
 url: https://grimmdude.com # the base hostname & protocol for your site
 baseurl: / # the subpath of your site, e.g. /blog/
 last_updated: false # set to true if you want to display last updated in the footer
