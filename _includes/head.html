@@ -1,10 +1,29 @@
-<title>{% if page.title %}{{ page.title | append:' - ' | append:site.title }}{% else %}{{ site.title }}{% endif %}</title>
-<meta charset="utf-8" />
-<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description | markdownify | strip_html }}{% endif %}" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!--[if lte IE 8]><script src="{{ site.github.url }}/assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css" />
-<!--[if lte IE 8]><link rel="stylesheet" href="{{ site.github.url }}/assets/css/ie8.css" /><![endif]-->
-<link rel="alternate" type="application/atom+xml" href="{{ site.github.url }}/atom.xml" title="Sitewide ATOM Feed" />
-<link rel="alternate" type="application/rss+xml" href="{{ site.github.url }}/rss.xml" title="Sitewide RSS Feed" />
-<link rel="author" type="text/plain" href="{{ site.github.url }}/humans.txt" />
+        
+    <!-- Metadata, OpenGraph and Schema.org -->
+    {% include metadata.html %}
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@{{ site.bootstrap.version }}/dist/css/bootstrap.min.css" rel="stylesheet" integrity="{{ site.bootstrap.integrity.css }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@{{ site.mdb.version }}/css/mdb.min.css" integrity="{{ site.mdb.integrity.css }}" crossorigin="anonymous" />
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ site.fontawesome.version }}/css/all.min.css" integrity="{{ site.fontawesome.integrity }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@{{ site.academicons.version }}/css/academicons.min.css" integrity="{{ site.academicons.integrity }}" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/{{ site.highlight_theme }}.css" />
+
+    <!-- Styles -->
+    {% if site.icon != empty -%}
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ site.icon }}</text></svg>">
+    {%- endif %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+    {%- if site.enable_darkmode %}
+
+    <!-- Dark Mode -->
+    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/dark_mode.js' | relative_url }}"></script>
+    {%- endif -%}

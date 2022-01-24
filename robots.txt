@@ -1,9 +1,7 @@
 ---
-sitemap:
-  exclude: true
+permalink: /robots.txt
 ---
-# robotstxt.org/
-User-Agent: *
+User-agent: *
 Disallow:
-{% capture siteurl %}{% if site.github.url %}{{ site.github.url }}{% else %}{{ site.url }}{% endif %}{% endcapture %}
-Sitemap: {{ siteurl }}/sitemap.xml
+
+Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap.xml
