@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: tab reminder
+description: a browser extension which lets you quickly set reminders to revisit web pages.
+img: assets/img/tab-reminder.png
 importance: 1
 category: work
+redirect: https://chrome.google.com/webstore/detail/tab-reminder/emjkjhniepjnianimdjmjndnjdanjmmk
 ---
 
 Every project has a beautiful feature showcase page.

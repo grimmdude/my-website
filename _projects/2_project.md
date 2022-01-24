@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image
-img: assets/img/3.jpg
+title: MidiWriterJS
+description: A JavaScript library providing an API for generating expressive multi-track MIDI files and JSON.
+img: 
 importance: 2
 category: work
+redirect: https://github.com/grimmdude/MidiWriterJS
 ---
 
 Every project has a beautiful feature showcase page.

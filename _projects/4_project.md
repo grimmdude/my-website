@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 4
-description: another without an image
+title: YouTube
+description: Some music videos I make
 img:
 importance: 3
 category: fun
+redirect: https://www.youtube.com/channel/UCFFBlI__po2CBLrtynTNbIA
 ---
 
 Every project has a beautiful feature showcase page.
