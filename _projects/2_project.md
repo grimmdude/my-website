@@ -1,11 +1,11 @@
 ---
 layout: page
-title: MidiWriterJS
-description: A JavaScript library providing an API for generating expressive multi-track MIDI files and JSON.
-img: 
+title: product watch
+description: a browser extension which notifies you when a product's price or available changes.
+img: assets/img/product-watch.png
 importance: 2
 category: work
-redirect: https://github.com/grimmdude/MidiWriterJS
+redirect: https://chrome.google.com/webstore/detail/productwatch/ldefllpaiecgmfjchlohmjnndddiobnj
 ---
 
 Every project has a beautiful feature showcase page.

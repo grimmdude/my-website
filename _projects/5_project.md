@@ -1,11 +1,11 @@
 ---
 layout: page
-title: YouTube
-description: Some music videos I make
-img:
-importance: 1
-category: fun
-redirect: https://www.youtube.com/channel/UCFFBlI__po2CBLrtynTNbIA
+title: MidiWriterJS
+description: A JavaScript library providing an API for generating expressive multi-track MIDI files and JSON.
+img: 
+importance: 4
+category: work
+redirect: https://github.com/grimmdude/MidiWriterJS
 ---
 
 Every project has a beautiful feature showcase page.
