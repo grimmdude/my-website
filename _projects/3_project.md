@@ -2,7 +2,7 @@
 layout: page
 title: MidiPlayerJS
 description: MIDI parser & player engine for browser or Node.
-img: 
+img: assets/img/github.png
 importance: 3
 category: work
 redirect: https://github.com/grimmdude/MidiPlayerJS
