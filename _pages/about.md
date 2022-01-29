@@ -14,4 +14,6 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hello!  I'm a web developer and a musician living in San Francisco, CA.  Here you'll find some documentation of my projects, interests, and other goings-on.
+Hello!  I'm a web developer and a musician living in San Francisco, CA.  Here you'll find some information about my projects, interests, and other goings-on.
+
+I'd love to hear from you, feel free to email me below.  I'm always happy to chat about programming, music, and anything in between.
