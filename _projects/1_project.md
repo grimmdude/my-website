@@ -1,9 +1,9 @@
 ---
 layout: page
-title: tab reminder
-description: a browser extension which lets you quickly set reminders to revisit web pages.
+title: Tab Reminder
+description: Browser extension which lets you quickly set reminders to revisit web pages.
 img: assets/img/tab-reminder.png
-importance: 1
+importance: 3
 category: work
 redirect: https://chrome.google.com/webstore/detail/tab-reminder/emjkjhniepjnianimdjmjndnjdanjmmk
 ---

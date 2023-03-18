@@ -1,9 +1,9 @@
 ---
 layout: page
-title: product watch
-description: a browser extension which notifies you when a product's price or available changes.
+title: Product Watch
+description: Browser extension which notifies you when a product's price or available changes.
 img: assets/img/product-watch.png
-importance: 2
+importance: 4
 category: work
 redirect: https://chrome.google.com/webstore/detail/productwatch/ldefllpaiecgmfjchlohmjnndddiobnj
 ---
