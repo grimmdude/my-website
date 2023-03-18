@@ -4,5 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     mode_toggle.addEventListener("click", function() {
         toggleTheme(localStorage.getItem("theme"));
     });
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // dark mode
+    }
 });
 
