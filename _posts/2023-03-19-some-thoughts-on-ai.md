@@ -12,4 +12,4 @@ Professionally we're encouraged to use AI to increase productivity, and I can se
 
 Driverless vehicles have me pondering as well.  Will there be a need for us to know how to drive if computers can do it better?  Will driving eventually become obsolete, or even outlawed in an effort to minimize fatalities caused by the mistakes of humans?
 
-Don't get me wrong, the idea leveraging computers to automate tasks is something I fully subscribe to.  After all, it's my profession and a great passion of mine.  I'm just very curious about how AI will transform our lives, and what will be gained and lost in the process.
+Don't get me wrong, the idea of leveraging computers to automate tasks is something I fully subscribe to.  After all, it's my profession and a great passion of mine.  I'm just very curious about how AI will transform our lives, and what will be gained and lost in the process.
