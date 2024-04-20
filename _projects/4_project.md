@@ -1,7 +1,7 @@
 ---
 layout: page
 title: YouTube
-description: Some music videos I make
+description: Some music videos I make.
 img: assets/img/youtube.png
 importance: 1
 category: fun

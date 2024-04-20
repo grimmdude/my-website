@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Music
+title: Spotify
 description: Music that I've released.
 img: assets/img/spotify.png
 importance: 2
