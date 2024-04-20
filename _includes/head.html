@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.min.js"></script>
+
     {%- if site.enable_darkmode %}
     <!-- Dark Mode -->
     <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
