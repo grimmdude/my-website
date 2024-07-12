@@ -2,7 +2,7 @@
 <html lang="en">
 
   <!-- Head -->
-  <head><meta http-equiv="refresh" content="3; url=https://grimmdude.com/" />        
+  <head>        
     <!-- Metadata, OpenGraph and Schema.org -->
     
 
@@ -10,9 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Garrett Grimm | Page not found</title>
+    <title>Garrett Grimm | Confirming a Link Click with jQuery</title>
     <meta name="author" content="Garrett  Grimm" />
-    <meta name="description" content="Looks like there has been a mistake. Nothing exists here." />
+    <meta name="description" content="Garrett Grimm, Web Developer and Musician.
+" />
 
 
     <!-- Bootstrap & MDB -->
@@ -30,7 +31,7 @@
     <!-- Styles -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪴</text></svg>">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://grimmdude.com/404.html">
+    <link rel="canonical" href="https://grimmdude.com/blog/2011/confirming-a-link-click-with-jquery/">
 
     <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.min.js"></script>
     <!-- Dark Mode -->
@@ -65,7 +66,7 @@
               </li>
               
               <!-- Blog -->
-              <li class="nav-item ">
+              <li class="nav-item active">
                 <a class="nav-link" href="/blog/">blog</a>
               </li>
 
@@ -89,20 +90,45 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <!-- page.html -->
-        <div class="post">
+      <!-- _layouts/post.html -->
 
-          <header class="post-header">
-            <h1 class="post-title">Page not found</h1>
-            <p class="post-description">Looks like there has been a mistake. Nothing exists here.</p>
-          </header>
+<div class="post">
 
-          <article>
-            <p>You will be redirected to the main page within 3 seconds. If not redirected, please click <a href="https://grimmdude.com/">here</a>.</p>
+  <header class="post-header">
+    <h1 class="post-title">Confirming a Link Click with jQuery</h1>
+    <p class="post-meta">July 28, 2011</p>
+    <p class="post-tags">
+      <a href="/blog/2011"> <i class="fas fa-calendar fa-sm"></i> 2011 </a>
+        ·  
+        <a href="/blog/category/JavaScript">
+          <i class="fas fa-tag fa-sm"></i> JavaScript</a>  
+          
 
-          </article>
+    </p>
+  </header>
 
-        </div>
+  <article class="post-content">
+    <p>Here's a function I wrote while working on a project that pops up a box confirming whether or not the user is sure the want to go to a link they clicked, like <a class="confirm" href="http://www.grimmdude.com/confirming-a-link-click-with-jquery/" title="This link will popup a confirmation box and bring you back to this post if you click OK." target="_blank" rel="noopener noreferrer">this</a>.</p>
+<p>It may be simple, but I haven't really used javascript's confirm() function much in the past and everything I found only directed the user to a link predefined in the function.  I wanted a function that would confirm any link I wanted it to without knowing the link destination in advance, in other words I wanted to confirm dynamic links.</p>
+<h2>The Code</h2>
+<p>This jQuery function will pop up a confirmation box on any link with the class <code>confirm</code> and send the user to the destination of that link if they click 'OK'.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nf">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">a.confirm</span><span class="dl">'</span><span class="p">).</span><span class="nf">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">()</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nf">attr</span><span class="p">(</span><span class="dl">'</span><span class="s1">href</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">confirm_box</span> <span class="o">=</span> <span class="nf">confirm</span><span class="p">(</span><span class="dl">'</span><span class="s1">Are you sure you want to click this link?</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">confirm_box</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+       <span class="c1">//uncomment below and remove above if you want the link to open in a new window</span>
+       <span class="c1">//window.open(url,'_blank');</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span></code></pre></figure>
+<h3>Link Code</h3>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.grimmdude.com/contact/"</span> <span class="na">class=</span><span class="s">"confirm"</span><span class="nt">&gt;</span>Link Example<span class="nt">&lt;/a&gt;</span></code></pre></figure>
+  </article>
+
+</div>
 
     </div>
 

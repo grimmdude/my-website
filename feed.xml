@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://grimmdude.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://grimmdude.com/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-12T07:19:41+00:00</updated><id>https://grimmdude.com/feed.xml</id><title type="html">blank</title><subtitle>Garrett Grimm, Web Developer and Musician.
+</subtitle><entry><title type="html">Some Thoughts on AI</title><link href="https://grimmdude.com/blog/2023/some-thoughts-on-ai/" rel="alternate" type="text/html" title="Some Thoughts on AI" /><published>2023-03-19T00:00:00+00:00</published><updated>2023-03-19T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2023/some-thoughts-on-ai</id><content type="html" xml:base="https://grimmdude.com/blog/2023/some-thoughts-on-ai/"><![CDATA[<p>I’ve been thinking a lot about what the world will look like in the upcoming years with the explosion of AI advancements.</p>
+
+<p>Professionally we’re encouraged to use AI to increase productivity, and I can see why.  It’s possible to ask an AI service to create something for you, and you’ll receive a very usable response which you can either then build on or use straight out of the box.  I can’t help but wonder though; is this what work will look like in the future?  Humans asking AI to do stuff for them, and essentially approving or denying its response?  Will your performance be evaluated by how well you can ask AI to complete a specific task?  Will it always been seen as just a tool?  These are the questions that go through my mind.</p>
+
+<p>Driverless vehicles have me pondering as well.  Will there be a need for us to know how to drive if computers can do it better?  Will driving eventually become obsolete, or even outlawed in an effort to minimize fatalities caused by the mistakes of humans?</p>
+
+<p>Don’t get me wrong, the idea of leveraging computers to automate tasks is something I fully subscribe to.  After all, it’s my profession and a great passion of mine.  I’m just very curious about how AI will transform our lives, and what will be gained and lost in the process.</p>]]></content><author><name></name></author><category term="Technology" /><summary type="html"><![CDATA[I’ve been thinking a lot about what the world will look like in the upcoming years with the explosion of AI advancements.]]></summary></entry><entry><title type="html">MidiWriterJS - A JavaScript Library for Creating Expressive MIDI Files</title><link href="https://grimmdude.com/blog/2017/midiwriterjs/" rel="alternate" type="text/html" title="MidiWriterJS - A JavaScript Library for Creating Expressive MIDI Files" /><published>2017-01-26T00:00:00+00:00</published><updated>2017-01-26T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2017/midiwriterjs</id><content type="html" xml:base="https://grimmdude.com/blog/2017/midiwriterjs/"><![CDATA[<p><a href="https://github.com/grimmdude/MidiWriterJS" title="View on GitHub">MidiWriterJS</a> is a small JavaScript library which provides an API for programatically generating MIDI files.  It supports most features of MIDI including multiple tracks, meta events such as key signature and time signature, velocity control, and more.</p>
+
+<h2 id="about">About</h2>
+<p>Being a musician and a programmer I’ve always been interested in the MIDI file format and the possible web applications that could leverage it.  When I first started programming I really wanted to do something with MIDI so I looked up the <a href="http://cs.fit.edu/~ryan/cse4051/projects/midi/midi.html">spec</a> for the MIDI file format but was very intimidated by the details, like woah.  So I shelved it and proceeded to build simpler applications, many musical in nature, which helped me build my skillset.  What I like about about MIDI is how universal it is; once you have a MIDI file you can use one of the many applications available to play it, transpose it, notate it, and modify it.</p>
+
+<p>Flash forward to the present; I thought it would be interesting to see if I could use the Web Audio API to record a single note and convert it to MIDI.  I got to the point where I could detect the frequency and duration of the note  and was ready to plug that data into a MIDI generating library for the conversion.  Thing is, I wasn’t having very good luck finding a suitable JavaScript library that did what I needed.  The thought of creating one myself crossed my mind so I went and took a second look at the MIDI file spec.  I pulled up the <a href="http://cs.fit.edu/~ryan/cse4051/projects/midi/midi.html">same web page</a> as I did years earlier and what do you know, it made much more sense than it did the first time I saw it.  I actually understood how the hex values worked and what byte length meant!  So at that point I was determined to put my programming knowledge to the test and write a MIDI file generator.</p>
+
+<h2 id="purpose">Purpose</h2>
+<p>By combining this library with a pitch and rhythm generating algorithm you could potentially create unique pieces of music.  With some basic constraints I would imagine you could get something sounding pretty good.  Another idea I had was using this library to create audio “visualizations” of a dataset.  For instance if you set some time based data to a beat, say one day equals one quarter note, and set the data points to pitches/velocity/octaves it could be consumed through the ears or even as written notation.</p>
+
+<p>Of course you could also use this library in a more conventional way and incorporate it into some type of interface such as a piano roll or notation editor to provide a MIDI export feature.</p>
+
+<h2 id="example">Example</h2>
+<p>The full documentation can be found on the <a href="https://github.com/grimmdude/MidiWriterJS">GitHub page</a>, so I won’t go into too much detail here.  Though, here’s an example that should give you a basic idea of how the API is used to write the melody for “Hot Cross Buns”:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">MidiWriter</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">midi-writer-js</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">track</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">Track</span><span class="p">();</span>
+<span class="nx">track</span><span class="p">.</span><span class="nf">addEvent</span><span class="p">([</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">E4</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">}),</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">}),</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">E4</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">}),</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">}),</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">8</span><span class="dl">'</span><span class="p">}),</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">E4</span><span class="dl">'</span><span class="p">,</span><span class="dl">'</span><span class="s1">D4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">}),</span>
+            <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">NoteEvent</span><span class="p">({</span><span class="na">pitch</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">C4</span><span class="dl">'</span><span class="p">],</span> <span class="na">duration</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">})</span>
+    <span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Sets the sequential property to true for all events</span>
+    <span class="k">return</span> <span class="p">{</span><span class="na">sequential</span><span class="p">:</span><span class="kc">true</span><span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">write</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MidiWriter</span><span class="p">.</span><span class="nc">Writer</span><span class="p">([</span><span class="nx">track</span><span class="p">]);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">write</span><span class="p">.</span><span class="nf">dataUri</span><span class="p">());</span></code></pre></figure>]]></content><author><name></name></author><category term="JavaScript" /><category term="MIDI" /><summary type="html"><![CDATA[Being a musician and a programmer I've always been interested in the MIDI file format and the possible web applications that could leverage it. When I first started programming I really wanted to do something with MIDI so I looked up the spec for the MIDI file format but was very intimidated by the details, like woah.]]></summary></entry><entry><title type="html">Delete Duplicate WordPress Comments</title><link href="https://grimmdude.com/blog/2013/delete-duplicate-wordpress-comments/" rel="alternate" type="text/html" title="Delete Duplicate WordPress Comments" /><published>2013-06-24T00:00:00+00:00</published><updated>2013-06-24T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2013/delete-duplicate-wordpress-comments</id><content type="html" xml:base="https://grimmdude.com/blog/2013/delete-duplicate-wordpress-comments/"><![CDATA[<p>I ran into a situation recently where all of the comments on a blog I was working on got doubled up, so I had to figure out a way to get rid of the extra ones.  I read some solutions involving using two MySQL tables but I was hoping to avoid dealing with all that.</p>
+
+<p>I ended up writing this script that basically goes through each comment and checks if another comment with the same content exists on the same post, and if so deletes it.  It’s pretty simple I think and worked like a charm for me so I thought I’d share it here.  Remember to always backup your database before running any kind of fixes like this, just in case.</p>
+
+<script src="https://gist.github.com/grimmdude/5828710.js"></script>]]></content><author><name></name></author><category term="Wordpress" /><summary type="html"><![CDATA[I ran into a situation recently where all of the comments on a blog I was working on got doubled up, so I had to figure out a way to get rid of the extra ones. I read some solutions involving using two MySQL tables but I was hoping to avoid dealing with all that.]]></summary></entry><entry><title type="html">Add Custom Classes to Wordpress Posts</title><link href="https://grimmdude.com/blog/2013/add-custom-classes-to-wordpress-posts/" rel="alternate" type="text/html" title="Add Custom Classes to Wordpress Posts" /><published>2013-06-23T00:00:00+00:00</published><updated>2013-06-23T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2013/add-custom-classes-to-wordpress-posts</id><content type="html" xml:base="https://grimmdude.com/blog/2013/add-custom-classes-to-wordpress-posts/"><![CDATA[<p>While developing my latest WordPress plugin, <a href="https://wordpress.org/plugins/initial-letter/" target="_blank">Initial Letter</a>, I needed to figure out how to add a custom class to the post container.  While I actually didn't end using this method I figured it would be an easy thing to share in case others were looking to do the same thing.</p>
+<p>Basically it comes down to adding a filter which ties into the &#8216;post_class&#8217; hook.  Keep in mind that this will only work if the theme you're using implements the <a href="http://codex.wordpress.org/Function_Reference/post_class" target="_blank">post_class()</a> function, which pretty much all themes should use.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">//</span> <span class="no">Add</span> <span class="s1">'initial_letter_post'</span> <span class="k">class</span> <span class="n">to</span> <span class="n">post</span> <span class="n">container</span>
+<span class="n">function</span> <span class="n">initial_letter_plugin_class_filter</span><span class="p">(</span><span class="vg">$classes</span><span class="p">)</span> <span class="p">{</span>
+	<span class="vg">$classes</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">'initial_letter_post'</span><span class="p">;</span>
+	<span class="k">return</span> <span class="vg">$classes</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">add_filter</span><span class="p">(</span> <span class="s1">'post_class'</span><span class="p">,</span> <span class="s1">'initial_letter_plugin_class_filter'</span><span class="p">);</span></code></pre></figure>]]></content><author><name></name></author><category term="Wordpress" /><summary type="html"><![CDATA[While developing my latest WordPress plugin, Initial Letter, I needed to figure out how to add a custom class to the post container.]]></summary></entry><entry><title type="html">menuFlip - jQuery Plugin for Flipping Navigation</title><link href="https://grimmdude.com/blog/2011/jquery-menu-flip/" rel="alternate" type="text/html" title="menuFlip - jQuery Plugin for Flipping Navigation" /><published>2011-08-11T00:00:00+00:00</published><updated>2011-08-11T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2011/jquery-menu-flip</id><content type="html" xml:base="https://grimmdude.com/blog/2011/jquery-menu-flip/"><![CDATA[<style type="text/css" media="screen">
+	ul#flip_nav {
+		background-color:#ffffff;
+		border:none;
+		overflow:hidden;
+	}
+
+	ul#flip_nav li {
+		list-style:none;
+		float:left;
+		text-align:center;
+		margin:0px 10px 0px 0px;
+
+		/*bare bones required css (feel free to change the height though)*/
+		height:20px;
+		overflow:hidden;
+	}
+
+	ul#flip_nav li a  {
+		font-family:helvetica;
+		font-size:12px;
+		color:#3f3f3f;
+		text-transform:uppercase;
+		text-decoration:none;
+		background-color:white;
+		margin:0px;
+		padding:0px 5px 0px 5px;
+
+		/*bare bones required css*/
+		display:block;
+	}
+
+	/*this defines the styling of the new flipped menu item*/
+	ul#flip_nav li a.flipped_item {
+		background-color:#000000;
+		color: #ffffff;
+	}
+</style>
+
+<p>menuFlip is a jQuery plugin for adding a flipping, marquee type effect to text based navigational menu items when hovered over without needing to use background images, which can be a pain.</p>
+<p><a href="https://github.com/grimmdude/jQuery-menuFlip/archive/master.zip" class="button">Download</a></p>
+<p><a href="https://github.com/grimmdude/jQuery-menuFlip" title="jQuery menuFlip Plugin" target="_blank">View source on GitHub</a></p>
+<h2>Menu Example</h2>
+<ul id="flip_nav">
+	<li><a href="javascript:;">Home</a></li>
+	<li><a href="javascript:;">Web</a></li>
+	<li><a href="javascript:;">Blog</a></li>
+	<li><a href="javascript:;">Contact</a></li>
+</ul>
+<h2>HTML</h2>
+<p>All you need is this simple markup.</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"flip_nav"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/home"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/web"</span><span class="nt">&gt;</span>Web<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/blog"</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/contact"</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></figure>
+
+<p>You can optionally specify the text you want to use for the flipped menu item using the <code>data-flipped-text</code> attribute in each link:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/home"</span> <span class="na">data-flipped-text=</span><span class="s">"Flipped Text"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span></code></pre></figure>
+
+<h2>Calling the Plugin</h2>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#flip_nav).menuFlip({
+    li_height       : </span><span class="dl">'</span><span class="mi">20</span><span class="nx">px</span><span class="dl">'</span><span class="s1">, 
+    flip_speed      : 150, 
+    flipped_class   : </span><span class="dl">'</span><span class="nx">flipped_item</span><span class="dl">'</span><span class="s1">, 
+    mouseover       : function() {}, 
+    mouseout        : function() {}
+});</span></code></pre></figure>
+
+<h2>CSS</h2>
+<p>No extra CSS is required for this plugin to function, but you'll probably want to define a width for the <code>ul</code> or float the <code>li</code> elements to the left so they are inline.  Also, the flipped items have a class of <code>flipped_item</code> so you can style that puppy as you like.  Here's an example of the CSS for the above example:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">ul</span><span class="nf">#flip_nav</span> <span class="nt">li</span> <span class="p">{</span>
+	<span class="nl">float</span><span class="p">:</span><span class="nb">left</span><span class="p">;</span>
+	<span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+	<span class="nl">margin</span><span class="p">:</span><span class="m">0px</span> <span class="m">10px</span> <span class="m">0px</span> <span class="m">0px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*this defines the styling of the new flipped menu item*/</span>
+<span class="nt">ul</span><span class="nf">#flip_nav</span> <span class="nt">a</span><span class="nc">.flipped_item</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span><span class="m">#000000</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#ffffff</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/assets/js/jquery.menuflip.js"></script>
+
+<script>jQuery('#flip_nav').menuFlip();</script>]]></content><author><name></name></author><category term="Wordpress" /><summary type="html"><![CDATA[Here's another simple WordPress plugin I came up with. I was trying to figure out an easy way to create a text box for some song lyrics which, once clicked, selected everything inside so anyone could easily copy and past the contents. Well, once I figured out how to make it I figured I would make it easier for others who want to do the same thing. Hence, Simple Select All Text box was born.]]></summary></entry><entry><title type="html">Confirming a Link Click with jQuery</title><link href="https://grimmdude.com/blog/2011/confirming-a-link-click-with-jquery/" rel="alternate" type="text/html" title="Confirming a Link Click with jQuery" /><published>2011-07-28T00:00:00+00:00</published><updated>2011-07-28T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2011/confirming-a-link-click-with-jquery</id><content type="html" xml:base="https://grimmdude.com/blog/2011/confirming-a-link-click-with-jquery/"><![CDATA[<p>Here's a function I wrote while working on a project that pops up a box confirming whether or not the user is sure the want to go to a link they clicked, like <a class="confirm" href="http://www.grimmdude.com/confirming-a-link-click-with-jquery/" title="This link will popup a confirmation box and bring you back to this post if you click OK.">this</a>.</p>
+<p>It may be simple, but I haven't really used javascript's confirm() function much in the past and everything I found only directed the user to a link predefined in the function.  I wanted a function that would confirm any link I wanted it to without knowing the link destination in advance, in other words I wanted to confirm dynamic links.</p>
+<h2>The Code</h2>
+<p>This jQuery function will pop up a confirmation box on any link with the class <code>confirm</code> and send the user to the destination of that link if they click 'OK'.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nf">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">a.confirm</span><span class="dl">'</span><span class="p">).</span><span class="nf">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">()</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nf">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nf">attr</span><span class="p">(</span><span class="dl">'</span><span class="s1">href</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">confirm_box</span> <span class="o">=</span> <span class="nf">confirm</span><span class="p">(</span><span class="dl">'</span><span class="s1">Are you sure you want to click this link?</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">confirm_box</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+       <span class="c1">//uncomment below and remove above if you want the link to open in a new window</span>
+       <span class="c1">//window.open(url,'_blank');</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span></code></pre></figure>
+<h3>Link Code</h3>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.grimmdude.com/contact/"</span> <span class="na">class=</span><span class="s">"confirm"</span><span class="nt">&gt;</span>Link Example<span class="nt">&lt;/a&gt;</span></code></pre></figure>]]></content><author><name></name></author><category term="JavaScript" /><summary type="html"><![CDATA[Here's a function I wrote while working on a project that pops up a box confirming whether or not the user is sure the want to go to a link they clicked]]></summary></entry><entry><title type="html">Select All Text Box Wordpress Plugin</title><link href="https://grimmdude.com/blog/2009/simple-select-all-text-box-wordpress-plugin/" rel="alternate" type="text/html" title="Select All Text Box Wordpress Plugin" /><published>2009-11-04T00:00:00+00:00</published><updated>2009-11-04T00:00:00+00:00</updated><id>https://grimmdude.com/blog/2009/simple-select-all-text-box-wordpress-plugin</id><content type="html" xml:base="https://grimmdude.com/blog/2009/simple-select-all-text-box-wordpress-plugin/"><![CDATA[<p>Here’s another simple WordPress plugin I came up with.  I was trying to figure out an easy way to create a text box for some song lyrics which, once clicked, selected everything inside so anyone could easily copy and past the contents.  Well, once I figured out how to make it I figured I would make it easier for others who want to do the same thing.  Hence, Simple Select All Text box was born.</p>
+
+<p><a class="button" title="Download Simple Select All Text Box Plugin" href="http://wordpress.org/extend/plugins/simple-select-all-text-box/" target="_blank">Download Plugin</a></p>
+<h2>Instructions:</h2>
+<p>To create a text box in a post or a page use this shortcode:</p>
+<p><pre>[textbox rows="3"]Contents of text box[/textbox]</pre></p>
+<p>Options are as follows:</p>
+<ul>
+	<li><code>rows</code> Number of text rows.  This will determine the height of the text box. (optional)</li>
+	<li><code>width</code> Width of the text box in pixels. (optional)</li>
+	<li><code>code</code> When set to <b>true</b> the content of the text box will not be escaped. Useful for including code snippets. (optional)</li>
+	<li><code>class</code> Specifies a custom class to use on the text box.  Useful for styling. (optional)</li>
+</ul>
+<h2>Installation:</h2>
+<ol>
+	<li>Upload the whole simple-select-all-textbox folder to the /wp-content/plugins/ directory.</li>
+	<li>Activate the plugin through the Plugins menu in WordPress.</li>
+	<li>Go to the options page to adjust the width of all text boxes made using this shortcode.</li>
+</ol>
+<h2>Example:</h2>
+<textarea rows="3" class="form-control" onclick="this.focus();this.select();" onchange="this.value = this.getAttribute('data-content');" data-content="And we could pretend it all the time
+Can't you see that it's just raining?
+There ain't no need to go outside">And we could pretend it all the time
+Can't you see that it's just raining?
+There ain't no need to go outside</textarea>]]></content><author><name></name></author><category term="Wordpress" /><summary type="html"><![CDATA[Here's another simple WordPress plugin I came up with. I was trying to figure out an easy way to create a text box for some song lyrics which, once clicked, selected everything inside so anyone could easily copy and past the contents. Well, once I figured out how to make it I figured I would make it easier for others who want to do the same thing. Hence, Simple Select All Text box was born.]]></summary></entry></feed>
